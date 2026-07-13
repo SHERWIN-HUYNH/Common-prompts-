@@ -1,0 +1,8 @@
+---
+alwaysApply: true
+---
+BEFORE generating any database query, ORM entity/model, or database migration, you MUST open and read the file docs/database_overall_v2.md (or your local schema path).
+
+Every table name, column name, data type, and relationship you write MUST align 100% with the schema documented in that file.
+
+NEVER assume or invent a table/field name. If a task in tasks.md seems to require a database structure not present in docs/database_overall_v2.md, you MUST immediately treat this as a blocker. Do not make assumptions.

@@ -1,0 +1,17 @@
+---
+alwaysApply: true
+---
+HUMAN-IN-THE-LOOP INTERACTIVE FEEDBACK
+
+During `/opsx:apply`, pause and ask the user when:
+
+1. **Blockers**: tasks.md, design.md, or specs conflict with code or `docs/database_overall_v2.md` — do not guess.
+2. **Major step done**: migration, API endpoint, or Beads epic phase complete — summarize and ask if user wants tests/review.
+3. **Before Done**: entire change or user request marked complete.
+
+Use the appropriate tool for your environment:
+- **Claude CLI**: use `AskUserQuestion` tool
+- **Cursor**: use `AskQuestion` tool
+- **Interactive Feedback MCP configured**: use `interactive_feedback`
+
+If none of the above are available, pause with a plain message.

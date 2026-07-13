@@ -1,0 +1,76 @@
+---
+
+alwaysApply: true
+
+---
+
+
+
+# OpenSpec + Beads workflow (SmartCope)
+
+
+
+Full cycle: **OpenSpec (What) → Beads (How) → Code**. See `AGENTS.md`.
+
+
+
+## Golden path
+
+
+
+1. `/opsx:propose <id>` or `/opsx:ff <id>` — create artifacts under `openspec/changes/<id>/`
+
+2. User reviews and says **Go!**
+
+3. `/openspec-to-beads <id>` — Beads epic + one task per `##` phase in `tasks.md`; writes `beads-map.md`
+
+4. `/opsx:apply <id>` — work only from `bd ready`; `bd close` then sync `tasks.md` checkboxes
+
+5. `/opsx:verify <id>` → `/opsx:archive <id>`
+
+
+
+## Source of truth
+
+
+
+| Phase | Owner |
+
+|-------|-------|
+
+| Requirements / design | OpenSpec artifacts (`proposal`, `specs`, `design`, `adr/`) |
+
+| What to do next | **Beads** (`bd ready`) |
+
+| Progress mirror | `tasks.md` checkboxes (sync on `bd close`) |
+
+
+
+## Do not
+
+
+
+- Jump from propose/ff straight to `/opsx:apply` without `/openspec-to-beads`
+
+- Tick `tasks.md` without `bd close` on the matching phase
+
+- Use TodoWrite or speckit-style task lists for implementation (Beads only)
+
+- Use TodoWrite during `/opsx:apply` — only allowed during artifact creation in propose/ff
+
+
+
+## Context loading (tiered)
+
+
+
+- **Always on apply:** `bd ready`, `bd show <id>`, pending lines in `tasks.md`, `beads-map.md`
+
+- **When needed:** relevant `specs/**/spec.md` section, `adr/` soundbite
+
+- **Skip by default:** full `proposal.md`, entire `design.md` if ADRs cover it
+
+
+
+Stack and schema: `openspec/config.yaml`, `adr/README.md`, `docs/database_overall_v2.md`
+
